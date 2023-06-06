@@ -1,5 +1,8 @@
 import java.util.* ;
 import java.io.*; 
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
 
 public class Solution {
 	public static ArrayList<ArrayList<Long>> printPascal(int n) {
@@ -22,7 +25,7 @@ public class Solution {
                 }
                 res.add((long)1);
 
-                ans.add
+                ans.add(res);
             }
         }
 

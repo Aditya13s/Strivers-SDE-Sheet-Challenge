@@ -21,8 +21,8 @@ class Solution {
 
 /*
  * Optimal
- * TC = O(N^2)
- * SC = O(1)
+ * TC = O(Nlog(N))
+ * SC = O(N)
  */
 class Solution {
     public int reversePairs(int[] nums) {

@@ -3,22 +3,34 @@
  * SC = O(N)
  */
 public class Solution {
-    public static int maximumMeetings(int []start, int []end) {
-        
-        int n = start.length;
-        int m[][] = new int[n][2];
-        for(int i=0;i<n;i++){
-            m[i][0] = start[i];
-            m[i][1] = end[i];
+    static class Meeting implements Comparable<Meeting> {
+        int start;
+        int end;
+        Meeting(int start, int end) {
+            this.start = start;
+            this.end = end;
         }
+
+        @Override
+        public int compareTo(Meeting meeting) {
+            return Integer.compare(this.end, meeting.end);
+        }
+    }
+    public static int maximumMeetings(int []start, int []end) {
+        // Write your code here.
+        int n = start.length;
+        Meeting[] meetings = new Meeting[n];
+        for(int i=0; i<n; i++) {
+            meetings[i] = new Meeting(start[i], end[i]);
+        };
         
-        Arrays.sort(m,(a,b) -> a[1] - b[1]);
+        Arrays.sort(meetings);
         
         int count = 1;
-        int tempEnd = m[0][1];
+        int tempEnd = meetings[0].end;
         for(int i=1; i<n; i++) {
-            if(m[i][0] > tempEnd) {
-                tempEnd = m[i][1];
+            if(meetings[i].start > tempEnd) {
+                tempEnd = meetings[i].end;
                 count++;
             }
         }

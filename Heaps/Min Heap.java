@@ -22,9 +22,7 @@ public class Solution {
                 int idx = minHeap.size() - 1;
                 bubbleUp(minHeap, idx);
             } else {
-                if (minHeap.size() <= 1) {
-                    ans.add(-1); // Heap is empty, add a placeholder value.
-                } else {
+                if(minHeap.size() > 1) {
                     ans.add(minHeap.get(1)); // Get the minimum element.
                     int lastEl = minHeap.remove(minHeap.size() - 1);
                     if (minHeap.size() > 1) {
